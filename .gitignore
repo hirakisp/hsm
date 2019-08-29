@@ -1,0 +1,9 @@
+
+*.o
+*.hex
+*.exe
+
+*.map
+*.stackdump
+
+*.bak
