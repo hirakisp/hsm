@@ -2,12 +2,14 @@
 #include "libhsm.h"
 #include "sm.h"
 
+int ev_msg;
+
 int example1_entry(void *ev)
 {
 	printf("%s \n", __func__);
-	int arg = 0xFF;
+	ev_msg = 0xFF;
 
-	hsm_set_ev(HSM_EVENT_1, (void *)&arg);
+	hsm_set_ev(HSM_EVENT_1, &ev_msg);
 
 	return HSM_NOTRANS;
 }
@@ -24,7 +26,7 @@ int example1_event1(void *ev)
 
 	int * arg = (int *)(ev);
 
-	printf(" argment is 0x%02x", *arg);
+	printf(" argment is 0x%02x\n", *arg);
 
 	return HSM_STATE_2;
 }

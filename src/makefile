@@ -3,7 +3,7 @@ CFLAGS= -O4 -Wall -Iinc
 DEST = bin
 LDFLAGS = -Llib
 LIBS = -lm
-OBJS = main.o libhsm.o state.o
+OBJS = main.o libhsm.o state.o sm.o
 PROGRAM = hsm
 
 all:		$(PROGRAM)

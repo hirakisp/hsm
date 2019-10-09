@@ -5,6 +5,7 @@
  * Event
  */
 
+#include "libhsm.h"
 #include "state.h"
 
 enum {
@@ -22,9 +23,8 @@ enum {
 	HSM_STATE_MAX
 };
 
-HSM_FUNC sm1[ HSM_EVENT_MAX ];
+extern HSM_FUNC sm1[ HSM_EVENT_MAX ];
+extern HSM_FUNC sm2[ HSM_EVENT_MAX ];
+extern const struct HSM_STATE sm[ HSM_STATE_MAX ];
 
-HSM_FUNC sm2[ HSM_EVENT_MAX ];
-
-struct HSM_STATE sm[ HSM_STATE_MAX ];
 #endif
