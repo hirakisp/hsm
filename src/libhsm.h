@@ -1,8 +1,8 @@
 #ifndef _LIBHSM_H_
 #define _LIBHSM_H_
 
-#define HSM_RET_OK (0)
-#define HSM_RET_NG (-1)
+#define ENOOK  (0)
+#define ENOENT (2)
 
 #define HSM_TRUE (1)
 #define HSM_FALSE (0)

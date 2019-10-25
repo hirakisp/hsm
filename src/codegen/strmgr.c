@@ -1,17 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "strmgr.h"
 
 #define DEFAULT_ALOC_EXTRA (128)
 
-struct STRMGR {
-	char *str;
-	int len;
-	int aloc;
-	int aloc_extra;
-};
-
-int strmgr_alloc(STRMGR *mgr, int aloc)
+int strmgr_alloc(struct STRMGR *mgr, int aloc)
 {
 	mgr->len = 0;
 	mgr->aloc = (aloc > 0) ? aloc : DEFAULT_ALOC_EXTRA;
@@ -24,18 +18,18 @@ int strmgr_alloc(STRMGR *mgr, int aloc)
 	return 1;
 }
 
-void strmgr_free(STRMGR *mgr)
+void strmgr_free(struct STRMGR *mgr)
 {
 	free(mgr->str);
 }
 
-int strmgr_append(STRMGR *mgr, const char *str)
+int strmgr_append(struct STRMGR *mgr, const char *str)
 {
 	int tmplen = mgr->len + strlen(str);
 	if ( tmplen > mgr->aloc ) {
 		mgr->aloc = tmplen + mgr->aloc_extra;
-		sb->str = (char *)realloc(mgr->str, mgr->aloc);
-		if (sb->str == NULL)
+		mgr->str = (char *)realloc(mgr->str, mgr->aloc);
+		if (mgr->str == NULL)
 			return 0;
 	}
 	strcpy(mgr->str + mgr->len, str);
@@ -45,7 +39,7 @@ int strmgr_append(STRMGR *mgr, const char *str)
 	return 1;
 }
 
-void strmgr_clr(STRMGR *mgr)
+void strmgr_clr(struct STRMGR *mgr)
 {
 	mgr->len = 0;
 	mgr->str[0] = '\0';

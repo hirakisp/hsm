@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include "libhsm.h"
 #include "file.h"
 
 int file_out(char * fn, char * str)
@@ -7,11 +9,11 @@ int file_out(char * fn, char * str)
 	fp = fopen(fn, "w");
 	if (fp == NULL) {
 		printf("can't open\n");
-		return HSM_RET_NG;
+		return -(ENOENT);
 	}
 
 	fprintf(fp, str);	/* print your string */
 	fclose(fp);
 
-	return HSM_RET_OK;
+	return 0;
 }
