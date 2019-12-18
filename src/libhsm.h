@@ -27,11 +27,11 @@ struct HSM_EVENT {
 };
 
 struct HSM_DATA {
-	HSM_BOOL event_created;
 	int new_state;
 	int current_state;
 	int event_num;
-	int event_pos;
+	int event_wpos;
+	int event_rpos;
 	int state_max;
 	int event_max;
 	const struct HSM_STATE *hsm_funcs;
