@@ -1,7 +1,7 @@
-# State Machine Firmware
+# What's HSM
 
-It's HSM. It's mean Hirakisp State Machine.
-The hsm is a my state machine for Embedded application.
+HSM is a state machine firmware for Embedded application.  
+It's an abbreviation for hirakisp's state-machine.  
 
  * statemachine core library
  * code generator with data parser
@@ -9,6 +9,27 @@ The hsm is a my state machine for Embedded application.
 
 The lastest source code is avalable here.
 
+# Simple APIs
+
+# hsm_init
+Initialize structure of events and states.  
+If defined initialize functions, It go to exec that functions.
+
++ Request *funcs, event_max, state_max
++ Response void
+
+## hsm_run
+Run state machine.
+
++ Request void
++ Response void
+
+## hsm_set_ev
+It go to set a event at hsm's queue.
+A event has id and pointer data.
+
++ Request event_id, *event_data
++ Response void
 
 # Code generator 
 
