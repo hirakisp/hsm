@@ -1,4 +1,6 @@
 # State Machine Firmware
+
+It's HSM. It's mean Hirakisp State Machine.
 The hsm is a my state machine for Embedded application.
 
  * statemachine core library
