@@ -13,9 +13,12 @@ typedef char HSM_BOOL;
 
 //typedef int (*HSM_ENTRY)(void);
 //typedef int (*HSM_EXIT)(void);
+typedef void (*HSM_INIT)(void);
 typedef int (*HSM_FUNC)(void *);
 
+
 struct HSM_STATE {
+	HSM_INIT init;
 	HSM_FUNC entry;
 	HSM_FUNC exit;
 	HSM_FUNC *func;

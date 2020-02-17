@@ -1,12 +1,12 @@
 #ifndef _SM_H_
 #define _SM_H_
+
 /* system parameter define */
 /*
  * Event
  */
 
 #include "libhsm.h"
-#include "state.h"
 
 enum {
 	HSM_EVENT_1 = 0,

@@ -27,6 +27,8 @@ static struct HSM_EVENT hsm_ev_dequeue()
 
 void hsm_init(const struct HSM_STATE *funcs, int event_max, int state_max)
 {
+	int i;
+
 	self.current_state = HSM_NOTRANS;
 	self.new_state = 0;
 	self.event_wpos = 0;
@@ -37,6 +39,10 @@ void hsm_init(const struct HSM_STATE *funcs, int event_max, int state_max)
 	self.state_max = state_max;
 	self.event_max = event_max;
 	self.hsm_funcs = funcs;
+
+	for (i = 0; i < state_max; i++)
+		if (self.hsm_funcs[i].init)
+			self.hsm_funcs[i].init();
 }
 
 void hsm_run()
@@ -55,7 +61,7 @@ void hsm_run()
 		/* Run entry event */
 		if (self.state_max > self.new_state) {
 			if (self.hsm_funcs[self.new_state].entry != NULL)
-				self.hsm_funcs[self.new_state].entry(NULL);
+				tmp_new_state = self.hsm_funcs[self.new_state].entry(NULL);
 		}
 
 		self.current_state = self.new_state;

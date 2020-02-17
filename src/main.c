@@ -5,13 +5,10 @@
 
 int main (void)
 {
-	printf("running!\n");
-
 	hsm_init(sm, HSM_EVENT_MAX, HSM_STATE_MAX);
 
-	while (1) {
+	while (1)
 		hsm_run();
-	}
 
 	return 0;
 }

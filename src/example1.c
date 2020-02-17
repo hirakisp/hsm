@@ -2,10 +2,17 @@
 #include "libhsm.h"
 #include "sm.h"
 
-int ev_msg;
+void example1_init(void)
+{
+	/*
+	 * Nothing to do.
+	 */
+	printf("%s\n", __func__);
+}
 
 int example1_entry(void *ev)
 {
+	int ev_msg;
 	printf("%s \n", __func__);
 	ev_msg = 0xFF;
 
@@ -32,30 +39,6 @@ int example1_event1(void *ev)
 }
 
 int example1_event2(void *ev)
-{
-	printf("%s \n", __func__);
-	return HSM_NOTRANS;
-}
-
-int example2_entry(void *ev)
-{
-	printf("%s \n", __func__);
-	return HSM_NOTRANS;
-}
-
-int example2_exit(void *ev)
-{
-	printf("%s \n", __func__);
-	return HSM_NOTRANS;
-}
-
-int example2_event1(void *ev)
-{
-	printf("%s \n", __func__);
-	return HSM_NOTRANS;
-}
-
-int example2_event2(void *ev)
 {
 	printf("%s \n", __func__);
 	return HSM_NOTRANS;

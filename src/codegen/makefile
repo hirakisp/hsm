@@ -1,10 +1,10 @@
 CC = gcc
-CFLAGS= -O4 -Wall -Iinc
+CFLAGS= -O4 -Wall -Iinc -I../
 DEST = bin
 LDFLAGS = -Llib
 LIBS = -lm
-OBJS = main.o libhsm.o example1.o example2.o sm.o
-PROGRAM = hsm
+OBJS = codegen.o file.o strmgr.o parser.o
+PROGRAM = codegen
 
 all:		$(PROGRAM)
 
