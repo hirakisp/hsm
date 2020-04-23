@@ -85,10 +85,13 @@ void hsm_run()
 	}
 }
 
-void hsm_set_ev( int event_id, void *event_data )
+void hsm_set_ev( int event_id, char *event_data, int len)
 {
 	struct HSM_EVENT event;
+	int i;
+
 	event.id = event_id;
-	event.data = event_data;
+	for (i = 0; i < len; i++)
+		event.data[i] = event_data[i];
 	hsm_ev_enqueue(event);
 }
