@@ -8,6 +8,7 @@
 #define HSM_FALSE (0)
 
 #define HSM_EV_BUFSIZE    (32)
+#define HSM_EV_DATASIZE   (8)
 
 typedef char HSM_BOOL;
 
@@ -26,7 +27,7 @@ struct HSM_STATE {
 
 struct HSM_EVENT {
 	int id;
-	void * data;
+	char data[HSM_EV_DATASIZE];
 };
 
 struct HSM_DATA {
